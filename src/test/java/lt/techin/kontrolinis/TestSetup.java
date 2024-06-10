@@ -29,7 +29,7 @@ public class TestSetup {
         registrationPage = new RegistrationPage(driver);
         searchResult = new SearchResult(driver);
         productPage = new ProductPage(driver);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(3));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
     }
 
     @AfterEach

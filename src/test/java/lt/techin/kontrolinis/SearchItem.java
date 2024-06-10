@@ -6,6 +6,8 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.concurrent.TimeUnit;
+
 public class SearchItem extends TestSetup{
     @ParameterizedTest
     @CsvFileSource(files = "src/test/resources/products.csv", numLinesToSkip = 1)
@@ -22,14 +24,13 @@ public class SearchItem extends TestSetup{
         searchResult.chooseProduct();
         productPage.clickWishlist();
 
+        wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.cssSelector(".wishlist-login > div[role='dialog'] > div[role='document'] .btn.btn-secondary.modal-cancel"))));
+
         Assertions.assertEquals(modalAlert, productPage.alertMessage(), "User is signed in");
-        //wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.cssSelector(".modal-header"))));
 
-        //Thread.sleep(5000);
-        //System.out.println(productPage.alertMessage());
-        //productPage.cancelButton();
+        System.out.println(productPage.alertMessage());
+        productPage.cancelButton();
 
-        //"element not interactable" closeAlert doesn't work?
     }
 
 

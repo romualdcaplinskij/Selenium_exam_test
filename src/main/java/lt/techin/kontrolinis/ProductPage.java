@@ -18,7 +18,7 @@ public class ProductPage extends BasePage{
     @FindBy (css = ".modal-text")
     private WebElement modalAlertText;
 
-    @FindBy (css = "div[role='document'] .btn.btn-secondary.modal-cancel")
+    @FindBy (css = ".wishlist-login > div[role='dialog'] > div[role='document'] .btn.btn-secondary.modal-cancel")
     private WebElement modalAlertCancel;
 
     @FindBy (css = "select[name='group[1]']")
